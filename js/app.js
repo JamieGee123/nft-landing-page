@@ -59,6 +59,11 @@ const checkOwner = async (account) => {
     editions = [...data.editions]
     let nextPage = data.next_page
 
+    //New code
+    const isIterable = (value) => {
+      return Symbol.iterator in Object(value);
+    }
+
     while(nextPage) {
       page = nextPage
       const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
@@ -67,9 +72,9 @@ const checkOwner = async (account) => {
       updateStatusText(isOwner, true)
       
       //New code
-      const isIterable = (value) => {
-        return Symbol.iterator in Object(value);
-      }
+      //const isIterable = (value) => {
+        //return Symbol.iterator in Object(value);
+      //}
       if(!isIterable(data.editions)){
         console.log('false yo');
         break;
