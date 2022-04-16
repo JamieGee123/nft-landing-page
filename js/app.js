@@ -70,7 +70,10 @@ const checkOwner = async (account) => {
       const isIterable = (value) => {
         return Symbol.iterator in Object(value);
       }
-      console.log(isIterable(data.editions));
+      if(!isIterable(data.editions){
+        console.log('false yo');
+        break;
+      }
       //////////
 
       editions = [...editions, ...data.editions]
