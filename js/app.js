@@ -59,7 +59,6 @@ const checkOwner = async (account) => {
     editions = [...data.editions]
     let nextPage = data.next_page
 
-    //New code
     const isIterable = (value) => {
       return Symbol.iterator in Object(value);
     }
@@ -71,15 +70,9 @@ const checkOwner = async (account) => {
       isOwner = !isOwner ? data.isOwner : isOwner;
       updateStatusText(isOwner, true)
       
-      //New code
-      //const isIterable = (value) => {
-        //return Symbol.iterator in Object(value);
-      //}
       if(!isIterable(data.editions)){
-        console.log('false yo');
         break;
       }
-      //////////
 
       editions = [...editions, ...data.editions]
       nextPage = data.next_page
