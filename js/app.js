@@ -77,9 +77,7 @@ const checkOwner = async (account) => {
       editions = [...editions, ...data.editions]
       nextPage = data.next_page
     }
-    if(!isOwner){
       updateStatusText(isOwner, false)
-    }
   }
 }
 
