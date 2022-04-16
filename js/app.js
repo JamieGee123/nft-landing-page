@@ -76,7 +76,7 @@ const checkOwner = async (account) => {
 
 function updateStatusText(isOwner, checking) {
   const statusText = document.querySelector('.owner-status');
-  if(checking && !isOwner) {
+  if(checking) {
     if(isOwner) {
       statusText.innerText = `You do own ${COLLECTION_NAME}!! Let's see how many${renderDots(dots)}`;
     } else {
