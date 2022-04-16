@@ -66,6 +66,13 @@ const checkOwner = async (account) => {
       isOwner = !isOwner ? data.isOwner : isOwner;
       updateStatusText(isOwner, true)
       
+      //New code
+      const isIterable = (value) => {
+        return Symbol.iterator in Object(value);
+      }
+      console.log(isIterable(data.editions));
+      //////////
+
       editions = [...editions, ...data.editions]
       nextPage = data.next_page
     }
