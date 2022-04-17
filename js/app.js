@@ -60,7 +60,7 @@ const checkOwner = async (account) => {
    
 
 
-    if(data.editions != 0){
+    if(data.editions.length != 0){
       editions = [...data.editions]
     }
 
