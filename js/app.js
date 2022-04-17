@@ -70,11 +70,11 @@ const checkOwner = async (account) => {
       isOwner = !isOwner ? data.isOwner : isOwner;
       updateStatusText(isOwner, true)
      
-      //if(data.editions !== false){
+      if(data.editions == 0){
         //console.log(data.editions)
         editions = [...editions, ...data.editions]
         console.log('here')
-     // }
+      }
       nextPage = data.next_page
     }
 
