@@ -1,6 +1,6 @@
 // METAMASK CONNECTION
 const TIMEOUT = 1000;
-const COLLECTION_NAME = 'Rare Bears';
+const COLLECTION_NAME = 'CodeCats';
 let editions = [];
 let dots = 1;
 
@@ -56,16 +56,8 @@ const checkOwner = async (account) => {
     isOwner = !isOwner ? data.isOwner : isOwner;
     updateStatusText(isOwner, true)
     
-    //if(!isIterable(data.editions)){
-      //return;
-    //}
-
     editions = [...data.editions]
     let nextPage = data.next_page
-
-    const isIterable = (value) => {
-      return Symbol.iterator in Object(value);
-    }
 
     while(nextPage) {
       page = nextPage
@@ -74,22 +66,11 @@ const checkOwner = async (account) => {
       isOwner = !isOwner ? data.isOwner : isOwner;
       updateStatusText(isOwner, true)
       
-     // if(!isIterable(data.editions)){
-       // return;
-     // }
-
       editions = [...editions, ...data.editions]
       nextPage = data.next_page
-
-      console.log(editions.length);
-      if(data.next_page == null){
-        console.log('here')
-        checking = false
-        //break;
-      }
     }
-   
-      updateStatusText(isOwner, true)
+
+    updateStatusText(isOwner, false)
   }
 }
 
@@ -97,15 +78,15 @@ function updateStatusText(isOwner, checking) {
   const statusText = document.querySelector('.owner-status');
   if(checking) {
     if(isOwner) {
-      statusText.innerText = `You do own ${COLLECTION_NAME}!! Let's see how many${renderDots(dots)}`;
+      statusText.innerText = `You do own ${COLLECTION_NAME}!! 😻 Let's see how many${renderDots(dots)}`;
     } else {
-      statusText.innerText = `Checking to see if you own any ${COLLECTION_NAME}${renderDots(dots)}`;
+      statusText.innerText = `Checking to see if you own any ${COLLECTION_NAME} 😻${renderDots(dots)}`;
     }
   } else {
     if(isOwner) {
-      statusText.innerText = `You own ${editions.length} ${COLLECTION_NAME}!!`;
+      statusText.innerText = `You own ${editions.length} ${COLLECTION_NAME}!! 😻`;
     } else {
-      statusText.innerText = `You don't own any ${COLLECTION_NAME}`;
+      statusText.innerText = `You don't own any ${COLLECTION_NAME} 😿`;
     }
   }
   dots = dots === 3 ? 1 : dots + 1;
