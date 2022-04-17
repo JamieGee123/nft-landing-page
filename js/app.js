@@ -93,7 +93,7 @@ function updateStatusText(isOwner, checking) {
   } else {
     if(isOwner) {
       statusText.innerText = `You own ${editions.length} ${COLLECTION_NAME}!!`;
-      checking = false;
+      checking == false;
     } else {
       statusText.innerText = `You don't own any ${COLLECTION_NAME}`;
     }
