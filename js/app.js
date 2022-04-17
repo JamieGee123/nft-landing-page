@@ -55,7 +55,8 @@ const checkOwner = async (account) => {
 
     isOwner = !isOwner ? data.isOwner : isOwner;
     updateStatusText(isOwner, true)
-    
+    console.log(data.editions)
+   
     editions = [...data.editions]
     let nextPage = data.next_page
 
