@@ -56,9 +56,9 @@ const checkOwner = async (account) => {
     isOwner = !isOwner ? data.isOwner : isOwner;
     updateStatusText(isOwner, true)
     
-    if(!isIterable(data.editions)){
-      return;
-    }
+    //if(!isIterable(data.editions)){
+      //return;
+    //}
 
     editions = [...data.editions]
     let nextPage = data.next_page
@@ -74,9 +74,9 @@ const checkOwner = async (account) => {
       isOwner = !isOwner ? data.isOwner : isOwner;
       updateStatusText(isOwner, true)
       
-      if(!isIterable(data.editions)){
-        break;
-      }
+      //if(!isIterable(data.editions)){
+      //  break;
+      //}
 
       editions = [...editions, ...data.editions]
       nextPage = data.next_page
