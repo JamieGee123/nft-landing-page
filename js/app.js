@@ -60,10 +60,10 @@ const checkOwner = async (account) => {
    
 
 
-    if(data.editions == 0){
+    if(data.editions != 0){
       editions = [...data.editions]
     }
-    
+
       let nextPage = data.next_page
 
    // const isIterable = false;
