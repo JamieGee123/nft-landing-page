@@ -50,8 +50,9 @@ const checkOwner = async (account) => {
   if(account) {
     let isOwner = false;
     let page = 1
+    const data =[]
     
-    const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
+    data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
     
     isOwner = !isOwner ? data.isOwner : isOwner;
     updateStatusText(isOwner, true)
