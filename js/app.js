@@ -59,7 +59,9 @@ const checkOwner = async (account) => {
     //if(!isIterable(data.editions)){
       //return;
     //}
-
+    if(data.next_page == null){
+      console.log('here');
+    }
     editions = [...data.editions]
     let nextPage = data.next_page
 
