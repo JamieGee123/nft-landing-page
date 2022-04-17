@@ -61,7 +61,7 @@ const checkOwner = async (account) => {
     editions = [...data.editions]
     let nextPage = data.next_page
 
-    const isIterable = false;
+   // const isIterable = false;
 
     while(nextPage) {
       page = nextPage
@@ -70,11 +70,11 @@ const checkOwner = async (account) => {
       isOwner = !isOwner ? data.isOwner : isOwner;
       updateStatusText(isOwner, true)
      
-      if(data.editions != false){
+      //if(data.editions !== false){
         //console.log(data.editions)
         editions = [...editions, ...data.editions]
         console.log('here')
-      }
+     // }
       nextPage = data.next_page
     }
 
