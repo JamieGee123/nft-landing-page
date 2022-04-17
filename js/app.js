@@ -75,7 +75,7 @@ const checkOwner = async (account) => {
       updateStatusText(isOwner, true)
       
       if(!isIterable(data.editions)){
-        return;
+       // return;
       }
 
       editions = [...editions, ...data.editions]
