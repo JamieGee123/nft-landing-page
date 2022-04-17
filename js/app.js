@@ -59,12 +59,7 @@ const checkOwner = async (account) => {
     //if(!isIterable(data.editions)){
       //return;
     //}
-    console.log(editions.length);
-    if(data.next_page == null){
-      console.log('here');
-      checking = false;
-      //break;
-    }
+
     editions = [...data.editions]
     let nextPage = data.next_page
 
@@ -85,7 +80,15 @@ const checkOwner = async (account) => {
 
       editions = [...editions, ...data.editions]
       nextPage = data.next_page
+
+      console.log(editions.length);
+      if(data.next_page == null){
+        console.log('here')
+        checking = false
+        //break;
+      }
     }
+   
       updateStatusText(isOwner, true)
   }
 }
