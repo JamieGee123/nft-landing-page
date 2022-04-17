@@ -61,6 +61,8 @@ const checkOwner = async (account) => {
     //}
     if(data.next_page == null){
       console.log('here');
+      checking = false;
+      //break;
     }
     editions = [...data.editions]
     let nextPage = data.next_page
