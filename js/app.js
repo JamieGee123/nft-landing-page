@@ -59,6 +59,7 @@ const checkOwner = async (account) => {
     //if(!isIterable(data.editions)){
       //return;
     //}
+    console.log(editions.length);
     if(data.next_page == null){
       console.log('here');
       checking = false;
