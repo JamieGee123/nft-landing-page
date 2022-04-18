@@ -9,6 +9,8 @@ window.addEventListener('DOMContentLoaded', () => {
   const onboardButton = document.getElementById('connectWallet');
   let accounts;
 
+  checked = false;
+
   const updateButton = async () => {
     if (!MetaMaskOnboarding.isMetaMaskInstalled()) {
       onboardButton.innerText = 'Install MetaMask!';
@@ -24,6 +26,8 @@ window.addEventListener('DOMContentLoaded', () => {
       
       console.log('1');
 
+      checked = true;
+
       checkOwner(accounts[0]);
     } else {
       onboardButton.innerText = 'Connect MetaMask!';
@@ -36,8 +40,9 @@ window.addEventListener('DOMContentLoaded', () => {
           onboardButton.disabled = true;
 
           console.log('2');
-
-          checkOwner(accounts[0]);
+          if(!checked){
+            checkOwner(accounts[0]);
+          }
         });
       };
     }
