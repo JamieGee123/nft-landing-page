@@ -22,7 +22,7 @@ window.addEventListener('DOMContentLoaded', () => {
       onboardButton.disabled = true;
       onboarding.stopOnboarding();
       
-      console.log('1')
+      console.log('1');
 
       checkOwner(accounts[0]);
     } else {
@@ -35,7 +35,7 @@ window.addEventListener('DOMContentLoaded', () => {
           onboardButton.innerText = `✔ ...${accounts[0].slice(-4)}`;
           onboardButton.disabled = true;
 
-          console.log('2')
+          console.log('2');
 
           checkOwner(accounts[0]);
         });
