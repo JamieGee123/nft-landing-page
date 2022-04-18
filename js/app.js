@@ -1,5 +1,5 @@
 // METAMASK CONNECTION
-const TIMEOUT = 1000;
+const TIMEOUT = 5000;
 const COLLECTION_NAME = 'Rare Bears';
 let editions = [];
 let dots = 1;
@@ -21,6 +21,9 @@ window.addEventListener('DOMContentLoaded', () => {
       onboardButton.innerText = `✔ ...${accounts[0].slice(-4)}`;
       onboardButton.disabled = true;
       onboarding.stopOnboarding();
+      
+      console.log('1');
+
       checkOwner(accounts[0]);
     } else {
       onboardButton.innerText = 'Connect MetaMask!';
@@ -31,6 +34,9 @@ window.addEventListener('DOMContentLoaded', () => {
         .then(function(accounts) {
           onboardButton.innerText = `✔ ...${accounts[0].slice(-4)}`;
           onboardButton.disabled = true;
+
+          console.log('2');
+
           checkOwner(accounts[0]);
         });
       };
@@ -50,21 +56,22 @@ const checkOwner = async (account) => {
   if(account) {
     let isOwner = false;
     let page = 1
-    let data = []
-    //editions =[]
+    //let data = []
+    //editions = []
     data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
     
     isOwner = !isOwner ? data.isOwner : isOwner;
-    updateStatusText(isOwner, true)
+    updateStatusText(isOwner, false)
     
-    
+    console.log(account)
+
     console.log(data.editions)
    
 
 
-    if(data.editions.length != 0){
+    //if(editions.length > 0){
       editions = [...data.editions]
-    }
+    //}
 
       let nextPage = data.next_page
 
@@ -77,7 +84,7 @@ const checkOwner = async (account) => {
       isOwner = !isOwner ? data.isOwner : isOwner;
       updateStatusText(isOwner, true)
      
-      if(data.editions.length != 0){
+      if(data.editions.length > 0){
         //console.log(data.editions)
         editions = [...editions, ...data.editions]
         console.log('here')
