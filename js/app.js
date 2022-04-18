@@ -39,7 +39,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
           checkOwner(accounts[0]);
         });
-      };
+      }
     }
   };
 
