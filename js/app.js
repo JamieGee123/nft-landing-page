@@ -47,7 +47,7 @@ window.addEventListener('DOMContentLoaded', () => {
   if (MetaMaskOnboarding.isMetaMaskInstalled()) {
     window.ethereum.on('accountsChanged', (newAccounts) => {
       accounts = newAccounts;
-      updateButton();
+      //updateButton();
     });
   }
 });
