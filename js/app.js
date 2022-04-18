@@ -77,7 +77,7 @@ const checkOwner = async (account) => {
       isOwner = !isOwner ? data.isOwner : isOwner;
       updateStatusText(isOwner, true)
      
-      if(data.editions.length < 1){
+      if(data.editions.length > 0){
         //console.log(data.editions)
         editions = [...editions, ...data.editions]
         console.log('here')
