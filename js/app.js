@@ -1,5 +1,5 @@
 // METAMASK CONNECTION
-const TIMEOUT = 5000;
+const TIMEOUT = 1000;
 const COLLECTION_NAME = 'Rare Bears';
 let editions = [];
 let dots = 1;
@@ -50,22 +50,21 @@ const checkOwner = async (account) => {
   if(account) {
     let isOwner = false;
     let page = 1
-    //let data = []
-    //editions = []
+    let data = []
+    //editions =[]
     data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
     
     isOwner = !isOwner ? data.isOwner : isOwner;
-    updateStatusText(isOwner, false)
+    updateStatusText(isOwner, true)
     
-    console.log(data.editions)
-
+    
     console.log(data.editions)
    
 
 
-    //if(editions.length > 0){
+    if(data.editions.length != 0){
       editions = [...data.editions]
-    //}
+    }
 
       let nextPage = data.next_page
 
@@ -78,7 +77,7 @@ const checkOwner = async (account) => {
       isOwner = !isOwner ? data.isOwner : isOwner;
       updateStatusText(isOwner, true)
      
-      if(data.editions.length > 0){
+      if(data.editions.length != 0){
         //console.log(data.editions)
         editions = [...editions, ...data.editions]
         console.log('here')
