@@ -21,9 +21,6 @@ window.addEventListener('DOMContentLoaded', () => {
       onboardButton.innerText = `✔ ...${accounts[0].slice(-4)}`;
       onboardButton.disabled = true;
       onboarding.stopOnboarding();
-      
-      console.log('1');
-
       checkOwner(accounts[0]);
     } else {
       onboardButton.innerText = 'Connect MetaMask!';
@@ -34,9 +31,6 @@ window.addEventListener('DOMContentLoaded', () => {
         .then(function(accounts) {
           onboardButton.innerText = `✔ ...${accounts[0].slice(-4)}`;
           onboardButton.disabled = true;
-
-          console.log('2');
-
           checkOwner(accounts[0]);
         });
       };
@@ -63,7 +57,7 @@ const checkOwner = async (account) => {
     isOwner = !isOwner ? data.isOwner : isOwner;
     updateStatusText(isOwner, false)
     
-    console.log(account)
+    console.log(data.editions)
 
     console.log(data.editions)
    
