@@ -22,7 +22,6 @@ window.addEventListener('DOMContentLoaded', () => {
       onboardButton.innerText = `✔ ...${accounts[0].slice(-4)}`;
       onboardButton.disabled = true;
       onboarding.stopOnboarding();
-      console.log('1');
       checked = true;
       checkOwner(accounts[0]);
     } else {
@@ -34,7 +33,6 @@ window.addEventListener('DOMContentLoaded', () => {
         .then(function(accounts) {
           onboardButton.innerText = `✔ ...${accounts[0].slice(-4)}`;
           onboardButton.disabled = true;
-          console.log('2');
           if(!checked){
             checkOwner(accounts[0]);
           }
@@ -60,9 +58,7 @@ const checkOwner = async (account) => {
     
     isOwner = !isOwner ? data.isOwner : isOwner;
     updateStatusText(isOwner, false)
-    
     //console.log(data.editions)
-   
     editions = [...data.editions]
     let nextPage = data.next_page
 
