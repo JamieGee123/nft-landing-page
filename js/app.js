@@ -37,7 +37,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
           console.log('2');
 
-          checkOwner(accounts[0]);
+          //checkOwner(accounts[0]);
         });
       };
     }
