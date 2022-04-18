@@ -1,5 +1,5 @@
 // METAMASK CONNECTION
-const TIMEOUT = 5000;
+const TIMEOUT = 1000;
 const COLLECTION_NAME = 'Rare Bears';
 let editions = [];
 let dots = 1;
@@ -8,7 +8,6 @@ window.addEventListener('DOMContentLoaded', () => {
   const onboarding = new MetaMaskOnboarding();
   const onboardButton = document.getElementById('connectWallet');
   let accounts;
-
   checked = false;
 
   const updateButton = async () => {
@@ -23,11 +22,8 @@ window.addEventListener('DOMContentLoaded', () => {
       onboardButton.innerText = `✔ ...${accounts[0].slice(-4)}`;
       onboardButton.disabled = true;
       onboarding.stopOnboarding();
-      
       console.log('1');
-
       checked = true;
-
       checkOwner(accounts[0]);
     } else {
       onboardButton.innerText = 'Connect MetaMask!';
@@ -38,7 +34,6 @@ window.addEventListener('DOMContentLoaded', () => {
         .then(function(accounts) {
           onboardButton.innerText = `✔ ...${accounts[0].slice(-4)}`;
           onboardButton.disabled = true;
-
           console.log('2');
           if(!checked){
             checkOwner(accounts[0]);
