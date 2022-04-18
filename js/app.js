@@ -62,9 +62,9 @@ const checkOwner = async (account) => {
    
 
 
-    if(editions.length > 0){
+    //if(editions.length > 0){
       editions = [...data.editions]
-    }
+    //}
 
       let nextPage = data.next_page
 
