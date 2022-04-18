@@ -56,26 +56,15 @@ const checkOwner = async (account) => {
   if(account) {
     let isOwner = false;
     let page = 1
-    //let data = []
-    //editions = []
     data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
     
     isOwner = !isOwner ? data.isOwner : isOwner;
     updateStatusText(isOwner, false)
     
-    console.log(account)
-
-    console.log(data.editions)
+    //console.log(data.editions)
    
-
-
-    //if(editions.length > 0){
-      editions = [...data.editions]
-    //}
-
-      let nextPage = data.next_page
-
-   // const isIterable = false;
+    editions = [...data.editions]
+    let nextPage = data.next_page
 
     while(nextPage) {
       page = nextPage
@@ -85,13 +74,11 @@ const checkOwner = async (account) => {
       updateStatusText(isOwner, true)
      
       if(data.editions){
-        //console.log(data.editions)
         editions = [...editions, ...data.editions]
         console.log('here')
       }
       nextPage = data.next_page
     }
-
     updateStatusText(isOwner, false)
   }
 }
