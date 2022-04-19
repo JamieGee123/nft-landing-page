@@ -62,8 +62,7 @@ const checkOwner = async (account) => {
     updateStatusText(isOwner, false)
     //console.log(data.editions)
     editions = [...data.editions]
-    iterateEditions(editions)
-    editionsImages.innerText = nftimages;
+    editionsImages.innerText = ``;
     let nextPage = data.next_page
 
     while(nextPage) {
@@ -139,11 +138,5 @@ async function fetchWithRetry(url)  {
       }); 
     }
     return fetch_retry(url);
-  });
-}
-
-function iterateEditions(editions){
-  editions.forEach(element => {
-    nftimages[index] = "https://opensea.mypinata.cloud/ipfs/bafybeic7euhz6awhrg4ill6zvvvryg5cg6mjirqhjbhyvhznlv2uvrbq6a/19.json" . element;
   });
 }
