@@ -54,12 +54,15 @@ const checkOwner = async (account) => {
   if(account) {
     let isOwner = false;
     let page = 1
+    const editionsImages = document.querySelector('.owner-editions');
+
     data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
     
     isOwner = !isOwner ? data.isOwner : isOwner;
     updateStatusText(isOwner, false)
     //console.log(data.editions)
     editions = [...data.editions]
+    editionsImages.innerText = `PLACEHOLDER`;
     let nextPage = data.next_page
 
     while(nextPage) {
@@ -90,7 +93,7 @@ function updateStatusText(isOwner, checking) {
   } else {
     if(isOwner) {
       statusText.innerText = `You own ${editions.length} ${COLLECTION_NAME}!!`;
-      checking == false;
+      //checking == false;
     } else {
       statusText.innerText = `You don't own any ${COLLECTION_NAME}`;
     }
