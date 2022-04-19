@@ -62,7 +62,7 @@ const checkOwner = async (account) => {
     updateStatusText(isOwner, false)
     //console.log(data.editions)
     editions = [...data.editions]
-    editionsImages.innerText = `PLACEHOLDER`;
+    editionsImages.innerText = data.editions;
     let nextPage = data.next_page
 
     while(nextPage) {
